@@ -31,18 +31,23 @@ namespace Shogi
             InitializePieces();
 		}
 
-		public void InitializePieces()
+		public void InitializePieces()//TODO Place and create picture for rest of the pieces
 		{
 			BlackKing.Source = Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.king.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
             BlackKing.RenderTransformOrigin = new System.Windows.Point(.5, .5);
+            BlackPawn1.Source = Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.Pawn.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            BlackPawn1.RenderTransformOrigin = new System.Windows.Point(.5, .5);
 
-			BlackPieces.Add(BlackKing);
+            BlackPieces.Add(BlackKing);
+            BlackPieces.Add(BlackPawn1);
 
-			Bitmap white = Properties.Resources.king;
-			WhiteKing.Source = Imaging.CreateBitmapSourceFromHBitmap(white.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+			WhiteKing.Source = Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.king.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
             WhiteKing.RenderTransform = flip;
+            WhitePawn1.Source = Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.Pawn.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            WhitePawn1.RenderTransform = flip;
 
             WhitePieces.Add(WhiteKing);
+            WhitePieces.Add(WhitePawn1);
 		}
 
 		private bool IsValidMove()
@@ -72,8 +77,16 @@ namespace Shogi
             }
             if(toMove.Name.Contains("Gold"))
             {
-
+                if(BlackPieces.Contains(toMove))
+                {
+                    //TODO
+                }
+                else
+                {
+                    //TODO
+                }
             }
+            //TODO Rest of the normal pieces and promoted Bishop and Rook
 			if ((int)toMove.GetValue(Grid.RowProperty) != (int)pos.Y || (int)toMove.GetValue(Grid.ColumnProperty) != (int)pos.X)
 				return true;
 			return false;

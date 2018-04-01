@@ -56,6 +56,7 @@
                 <Label Content="9" Grid.Row="9" Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
                 <Image Name="BlackKing" Grid.Row="8" Grid.Column="4" MouseDown="Piece_MouseDown" />
+                <Image Name="BlackPawn1" Grid.Row="6" Grid.Column="4" MouseDown="Piece_MouseDown"/>
 
                 <Image Name="WhiteKing" Grid.Row="0" Grid.Column="4" MouseDown="Piece_MouseDown" RenderTransformOrigin="0.5,0.5">
                     <Image.RenderTransform>
@@ -67,7 +68,16 @@
                         </TransformGroup>
                     </Image.RenderTransform>
                 </Image>
-
+                <Image Name="WhitePawn1" Grid.Row="2" Grid.Column="4" MouseDown="Piece_MouseDown" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" ScaleX="1"/>
+                            <SkewTransform AngleY="0" AngleX="0"/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
 
             </shogi:CustomGrid>
         </Border>

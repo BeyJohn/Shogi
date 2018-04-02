@@ -2,6 +2,10 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
+//Credit to Vishal.KumarSingh at
+//https://www.codeproject.com/Tips/1039691/WPF-Grid-Control-with-Solid-GridLines
+//for this class
+
 namespace Shogi
 {
 	public class CustomGrid : Grid
@@ -66,14 +70,14 @@ namespace Shogi
 			{
 				if (GridLinesVisibility == GridLinesVisibilityEnum.Both)
 				{
-					foreach (var rowDefinition in RowDefinitions)
+					foreach (RowDefinition rowDefinition in RowDefinitions)
 					{
 						dc.DrawLine(new Pen(GridLineBrush, GridLineThickness),
 			new Point(0, rowDefinition.Offset),
 			new Point(ActualWidth, rowDefinition.Offset));
 					}
 
-					foreach (var columnDefinition in ColumnDefinitions)
+					foreach (ColumnDefinition columnDefinition in ColumnDefinitions)
 					{
 						dc.DrawLine(new Pen(GridLineBrush, GridLineThickness),
 			new Point(columnDefinition.Offset, 0),
@@ -85,7 +89,7 @@ namespace Shogi
 				}
 				else if (GridLinesVisibility == GridLinesVisibilityEnum.Vertical)
 				{
-					foreach (var columnDefinition in ColumnDefinitions)
+					foreach (ColumnDefinition columnDefinition in ColumnDefinitions)
 					{
 						dc.DrawLine(new Pen(GridLineBrush, GridLineThickness),
 			new Point(columnDefinition.Offset, 0),
@@ -97,7 +101,7 @@ namespace Shogi
 				}
 				else if (GridLinesVisibility == GridLinesVisibilityEnum.Horizontal)
 				{
-					foreach (var rowDefinition in RowDefinitions)
+					foreach (RowDefinition rowDefinition in RowDefinitions)
 					{
 						dc.DrawLine(new Pen(GridLineBrush, GridLineThickness),
 			new Point(0, rowDefinition.Offset),
